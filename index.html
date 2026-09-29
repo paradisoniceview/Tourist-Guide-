@@ -1,178 +1,663 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#173f46">
-<meta name="description" content="Pisa Paradiso Nice View — elegant digital guest guide for your stay in Pisa. Restaurants, parking, ZTL, transport and places to visit.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Download index.html — Pisa Paradiso Nice View</title>
+  <style>
+    body{font-family:Inter,Arial,sans-serif;background:#f7f3eb;color:#173235;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .card{max-width:920px;background:#fffdf9;border:1px solid #e7dfd2;padding:22px;border-radius:12px;box-shadow:0 10px 30px rgba(23,50,53,.06)}
+    h1{font-family:"Cormorant Garamond",Georgia,serif;margin:0 0 8px}
+    p{margin:8px 0 16px;color:#687477}
+    button{background:#2d6266;color:#fff;border:0;padding:12px 16px;border-radius:10px;font-weight:600;cursor:pointer}
+    .small{font-size:.9rem;color:#687477;margin-top:12px}
+    textarea{width:100%;height:220px;border:1px solid #e7dfd2;border-radius:8px;padding:10px;font-family:monospace;font-size:12px;resize:vertical;background:#fffdf9}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    a.link{display:inline-block;margin-top:12px;color:#2d6266;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <h1>Scarica <em>index.html</em></h1>
+    <p>Apri questa pagina nel browser e il file <strong>index.html</strong> verrà scaricato automaticamente. Se il download non parte, usa il pulsante sottostante.</p>
+
+    <div class="row">
+      <button id="downloadBtn">Scarica index.html</button>
+      <button id="showBtn" style="background:#efe6d5;color:#4d3d23">Mostra contenuto</button>
+    </div>
+
+    <textarea id="contentArea" hidden aria-label="Contenuto index.html"></textarea>
+    <p class="small">Salva il file scaricato nella root del tuo sito GitHub Pages per pubblicarlo direttamente.</p>
+  </div>
+
+<script>
+/* Auto-download page: creates and downloads index.html containing the full guide.
+   If automatic download is blocked, user can click the "Scarica index.html" button.
+   The "Mostra contenuto" button reveals the HTML source for manual copy/save.
+*/
+
+const htmlContent = `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#173f46" />
+<meta name="description" content="Pisa Paradiso Nice View — elegant digital guest guide for your stay in Pisa. Restaurants, parking, ZTL, transport and places to visit." />
 <title>Pisa Paradiso Nice View | Guest Guide</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
 <style>
 :root{--ink:#173235;--teal:#2d6266;--gold:#b99a62;--cream:#f7f3eb;--paper:#fffdf9;--muted:#687477;--line:#e7dfd2}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.6}
-a{color:inherit}.hero{min-height:78vh;display:flex;align-items:flex-end;padding:40px 22px;background:linear-gradient(180deg,rgba(12,35,38,.05),rgba(12,35,38,.82)),url('https://images.unsplash.com/photo-1543429258-5b9e1c2f5a5f?auto=format&fit=crop&w=1800&q=85') center/cover}
-.hero-inner{max-width:900px;margin:auto;color:white;width:100%;padding-bottom:30px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;color:#ead7b4}.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(3.3rem,10vw,6.5rem);line-height:.88;margin:10px 0}.hero p{max-width:620px;font-size:1.02rem}
-nav{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.96);border-bottom:1px solid var(--line);overflow:auto;white-space:nowrap}nav .navin{max-width:1100px;margin:auto;display:flex;gap:6px;padding:9px 14px}nav a{text-decoration:none;padding:8px 12px;border-radius:20px;font-size:.84rem}nav a:hover{background:#eee7da}
-.container{max-width:1100px;margin:auto;padding:0 20px}.section{padding:62px 0}.section h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.7rem;line-height:1;margin:0 0 10px}.lead{color:var(--muted);max-width:720px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 7px 24px rgba(25,43,44,.05)}.card h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.8rem;margin:0 0 6px}.tag{display:inline-block;background:#e7f0ed;color:#245b5b;border-radius:30px;padding:4px 9px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+a{color:inherit}img{max-width:100%;height:auto;border-radius:12px;display:block}header.hero{min-height:78vh;display:flex;align-items:flex-end;padding:40px 22px;background:linear-gradient(180deg,rgba(12,35,38,.05),rgba(12,35,38,.82)),url('https://upload.wikimedia.org/wikipedia/commons/6/6b/Arno_river_in_Pisa_%28Unsplash%29.jpg') center/cover}
+.hero-inner{max-width:1100px;margin:auto;color:white;width:100%;padding-bottom:30px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;color:#ead7b4}.hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(3.3rem,10vw,6.5rem);line-height:.88;margin:10px 0}.hero p{max-width:720px;font-size:1.02rem}
+nav{position:sticky;top:0;z-index:30;background:rgba(255,253,249,.98);border-bottom:1px solid var(--line);overflow:auto;white-space:nowrap}nav .navin{max-width:1200px;margin:auto;display:flex;gap:6px;padding:9px 14px;align-items:center}nav a{text-decoration:none;padding:8px 12px;border-radius:20px;font-size:.84rem}nav a:hover{background:#eee7da}
+.container{max-width:1100px;margin:auto;padding:0 20px}.section{padding:62px 0}.section h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.4rem;line-height:1;margin:0 0 10px}.lead{color:var(--muted);max-width:720px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 7px 24px rgba(25,43,44,.05)}.card h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;margin:0 0 6px}.tag{display:inline-block;background:#e7f0ed;color:#245b5b;border-radius:30px;padding:4px 9px;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
 .meta{font-size:.88rem;color:var(--muted);margin:9px 0}.price{font-weight:600;color:var(--teal)}.btn{display:inline-block;text-decoration:none;background:var(--teal);color:white;padding:10px 14px;border-radius:10px;font-size:.85rem;font-weight:600;margin-top:8px}.btn.alt{background:#efe6d5;color:#4d3d23}.notice{border-left:4px solid var(--gold);background:#fffaf0;padding:16px 18px;border-radius:8px;margin-top:22px}.parking{border-top:4px solid var(--teal)}.restaurant{border-top:4px solid var(--gold)}
-table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:15px;overflow:hidden;margin-top:22px}th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eee7da}.small{font-size:.78rem;color:var(--muted)}
-footer{background:var(--ink);color:#e8eeee;padding:45px 20px}footer a{color:#f0d49c}footer .container{max-width:1000px}.lang{float:right}
-@media(max-width:650px){.section{padding:46px 0}.hero{min-height:72vh}.hero h1{font-size:4rem}.lang{float:none;display:block;margin-top:10px}}
+table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:12px;overflow:hidden;margin-top:22px}th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.9rem}th{background:#eee7da}.small{font-size:.78rem;color:var(--muted)}
+footer{background:var(--ink);color:#e8eeee;padding:45px 20px}footer a{color:#f0d49c}footer .container{max-width:1000px}.lang-switch{margin-left:auto;display:flex;gap:8px;align-items:center}.lang-switch button{background:transparent;border:1px solid rgba(0,0,0,.06);padding:6px 10px;border-radius:8px;font-weight:600;cursor:pointer}.lang-switch button.active{background:var(--teal);color:white;border-color:transparent}
+.top-controls{display:flex;gap:12px;align-items:center;width:100%}
+.place-photo{height:180px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+.voice-controls{display:flex;gap:8px;align-items:center}
+.badge{display:inline-block;background:#efe6d5;color:#4d3d23;border-radius:8px;padding:6px 10px;font-weight:600}
+@media(max-width:900px){.hero{min-height:60vh}.hero h1{font-size:3.2rem}}
+@media(max-width:650px){.section{padding:36px 0}.hero{min-height:72vh}.hero h1{font-size:4rem}.lang-switch{display:none}}
+.lang-block{display:none}
+.lang-block.active{display:block}
+.places-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:18px}
+.place-card{display:flex;flex-direction:column;gap:10px}
+.place-meta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.small-link{font-size:.9rem;color:var(--teal);text-decoration:underline}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" role="banner">
   <div class="hero-inner">
     <div class="eyebrow">Pisa • Tuscany • Italy</div>
     <h1>Pisa Paradiso<br>Nice View</h1>
-    <p>Your private guide to a beautiful stay on the Lungarno — with our favourite restaurants, practical parking information, ZTL guidance and the places we love most.</p>
-    <a class="btn alt" href="#restaurants">Explore the guide ↓</a>
+    <p class="lead">You are staying in a historic apartment overlooking the Arno, in the heart of Pisa. Take your time, walk the Lungarni and let the city reveal itself on foot.</p>
+    <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+      <a class="btn alt" href="#restaurants">Explore the guide ↓</a>
+      <div class="badge" style="margin-left:12px">Lingua: <strong id="current-lang-label">Italiano</strong></div>
+    </div>
   </div>
 </header>
 
-<nav><div class="navin">
-<a href="#welcome">Welcome</a><a href="#parking">Parking</a><a href="#restaurants">Restaurants</a><a href="#pisa">Pisa</a><a href="#practical">Practical</a>
-</div></nav>
+<nav aria-label="Main navigation">
+  <div class="navin">
+    <a href="#welcome">Welcome</a>
+    <a href="#parking">Parking</a>
+    <a href="#restaurants">Restaurants</a>
+    <a href="#pisa">Pisa</a>
+    <a href="#museums">Museums</a>
+    <a href="#certosa">Escursioni</a>
+    <a href="#history">Storia della casa</a>
+    <a href="#practical">Practical</a>
+
+    <div class="lang-switch" role="tablist" aria-label="Language switcher" style="margin-left:auto">
+      <button data-lang="it" class="active" aria-pressed="true">Italiano</button>
+      <button data-lang="en">English</button>
+      <button data-lang="fr">Français</button>
+      <button data-lang="de">Deutsch</button>
+      <button data-lang="es">Español</button>
+    </div>
+
+    <div class="voice-controls" style="margin-left:12px">
+      <button id="play-voice" class="btn" title="Play voice">Ascolta</button>
+      <button id="stop-voice" class="btn alt" title="Stop voice">Stop</button>
+    </div>
+  </div>
+</nav>
 
 <main>
-<section id="welcome" class="section">
-<div class="container">
-<div class="tag">Welcome</div>
-<h2>Feel at home in historic Pisa</h2>
-<p class="lead">You are staying in a historic apartment overlooking the Arno, in the heart of Pisa. Take your time, walk the Lungarni and let the city reveal itself on foot.</p>
-<div class="grid">
-<div class="card"><h3>Check-in</h3><p>Standard check-in from <strong>18:00</strong>. If you arrive earlier, please ask us about luggage drop-off and the earliest possible access.</p></div>
-<div class="card"><h3>Check-out</h3><p>Please leave the apartment by <strong>10:00</strong>, unless we have agreed otherwise with you.</p></div>
-<div class="card"><h3>Historic home</h3><p>This is a historic 14th-century apartment. Some of the people represented in the paintings displayed in the apartment stayed here.</p></div>
-</div>
-</div>
-</section>
+  <!-- WELCOME -->
+  <section id="welcome" class="section">
+    <div class="container">
+      <div class="tag">Welcome</div>
+      <h2>Feel at home in historic Pisa</h2>
+      <p class="lead">You are staying in a historic apartment overlooking the Arno, in the heart of Pisa. Take your time, walk the Lungarni and let the city reveal itself on foot.</p>
 
-<section id="parking" class="section" style="background:#f0ebe1">
-<div class="container">
-<div class="tag">By car</div>
-<h2>Parking made simple</h2>
-<p class="lead">For unloading luggage, we recommend bringing your bags to the apartment first and then moving the car to a suitable parking area. Always check the road signs on the day of arrival.</p>
-<div class="grid">
-<div class="card parking">
-<h3>Lungarno Guadalongo</h3>
-<p class="meta">Closest practical option • outdoor parking</p>
-<p><strong>€0.75/hour</strong> • paid generally <strong>08:00–17:00</strong> in the regulated area. The official tourism portal also lists a free parking area at Lungarno Guadalongo; availability and exact spaces can vary.</p>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Lungarno+Guadalongo+Pisa">Open in Maps</a>
-</div>
-<div class="card parking">
-<h3>Saba Vittorio Emanuele II</h3>
-<p class="meta">Covered / structured parking • central</p>
-<p><strong>Open 24/7.</strong> Current published rate: about <strong>€2.90/hour</strong>; parking tariff listed at <strong>€3.00/hour</strong> and <strong>€19/day</strong>. Online H24 multi-day rate from €19, plus possible booking fee.</p>
-<a class="btn" target="_blank" href="https://www.sabait.it/it/parcheggio-pisa/parcheggio-saba-vittorio-emanuele-ii">Parking details</a>
-</div>
-<div class="card parking">
-<h3>Tower Parking</h3>
-<p class="meta">Outside the ZTL • useful for the Tower area</p>
-<p><strong>Mon–Sat 07:00–20:30</strong>; <strong>Sun 09:00–20:30</strong>. Maximum vehicle height published: 2.00 m. Check the operator's current tariff before parking.</p>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tower+Parking+Via+Andrea+Pisano+17+Pisa">Open in Maps</a>
-</div>
-<div class="card parking">
-<h3>Piazza dei Miracoli</h3>
-<p class="meta">Useful when visiting the Tower</p>
-<p>Parking at Via Carlo Salomone Cammeo 51. <strong>06:30–23:30 every day</strong>, including holidays. About 350 car spaces; not for campers, vans or tourist buses.</p>
-<a class="btn" target="_blank" href="https://www.turismo.pisa.it/servizio/parcheggio-a-pagamento-di-piazza-dei-miracoli">Official info</a>
-</div>
-</div>
-<div class="notice"><strong>ZTL reminder:</strong> Pisa has regulated limited-traffic areas. Do not follow a route blindly into the historic centre. Check the signs and current restrictions before entering; parking authorization does not automatically mean access to every ZTL. Official information is available from PisaMo and the City of Pisa.</div>
-</div>
-</section>
+      <div class="grid">
+        <div class="card"><h3>Check-in</h3><p>Standard check-in from <strong>18:00</strong>. If you arrive earlier, please ask us about luggage drop-off and the earliest possible access.</p></div>
+        <div class="card"><h3>Check-out</h3><p>Please leave the apartment by <strong>10:00</strong>, unless we have agreed otherwise with you.</p></div>
+        <div class="card"><h3>Historic home</h3><p>This is a historic 14th-century apartment. Some of the people represented in the paintings displayed in the apartment stayed here.</p></div>
+      </div>
+    </div>
+  </section>
 
-<section id="restaurants" class="section">
-<div class="container">
-<div class="tag">Eat like a local</div>
-<h2>Our restaurant shortlist</h2>
-<p class="lead">A mix of Tuscan food, steak, contemporary cuisine, Asian flavours and quick local street food. Opening times and prices can change, so use the links to check before going.</p>
-<div class="grid">
-<div class="card restaurant">
-<h3>Quanto Basta</h3>
-<p class="meta">Via Palestro 37 • contemporary / Tuscan</p>
-<p><span class="price">Average about €30 per person</span>. A three-course menu is currently listed at €36; individual dishes include starters around €11–17.</p>
-<p class="small">Published opening times vary by source; check before visiting.</p>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Quanto+Basta+Via+Palestro+37+Pisa">Maps</a>
-</div>
-<div class="card restaurant">
-<h3>Mediceo Beersteccheria</h3>
-<p class="meta">Piazza Cairoli 13 • steak & craft beer</p>
-<p>Excellent choice for meat lovers and beer fans. The restaurant says it serves lunch <strong>12:00–15:00</strong> and dinner <strong>19:00–23:00</strong>, every day.</p>
-<a class="btn" target="_blank" href="https://www.mediceo.it/">Website</a>
-</div>
-<div class="card restaurant">
-<h3>I Porci Comodi</h3>
-<p class="meta">Piazza Evangelista Torricelli 8 • Tuscan street food</p>
-<p>Panini, porchetta, lampredotto, trippa and Tuscan platters. Current menu examples: panini about <strong>€7–8.50</strong>; one-person platter <strong>€15</strong>; two-person platter <strong>€24</strong>.</p>
-<p class="small">Published opening times: 11:30–14:00 and 18:30–21:45 daily.</p>
-<a class="btn" target="_blank" href="https://i-porci-comodi.it/">Menu & website</a>
-</div>
-<div class="card restaurant">
-<h3>La Fortuna Asian Bistrot</h3>
-<p class="meta">Lungarno Mediceo 64 • sushi & poke</p>
-<p>Very convenient from the apartment. Current menu examples: poke from about <strong>€10.50</strong>, sushi rolls from about <strong>€7.50</strong>.</p>
-<p class="small">Published hours include lunch and dinner service; check the day's opening time.</p>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=La+Fortuna+Asian+Bistrot+Lungarno+Mediceo+64+Pisa">Maps</a>
-</div>
-<div class="card restaurant">
-<h3>Chilometro Toscano</h3>
-<p class="meta">Via Cavour 9 • Tuscan cuisine</p>
-<p>A good option if you want a more traditional Tuscan dinner in the centre. Evening and weekend lunch services are listed; booking ahead is sensible.</p>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Chilometro+Toscano+Via+Cavour+9+Pisa">Maps</a>
-</div>
-<div class="card restaurant">
-<h3>Malvee's Grill Burger</h3>
-<p class="meta">Lungarno Mediceo 61 • burgers / casual</p>
-<p>Very close to the apartment and useful for a relaxed, informal meal. Published hours extend into the evening.</p>
-<a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Malvee's+Grill+Burger+Lungarno+Mediceo+61+Pisa">Maps</a>
-</div>
-</div>
-</div>
-</section>
+  <!-- PARKING -->
+  <section id="parking" class="section" style="background:#f0ebe1">
+    <div class="container">
+      <div class="tag">By car</div>
+      <h2>Parking made simple</h2>
+      <p class="lead">For unloading luggage, we recommend bringing your bags to the apartment first and then moving the car to a suitable parking area. Always check the road signs on the day of arrival.</p>
 
-<section id="pisa" class="section" style="background:#f0ebe1">
-<div class="container">
-<div class="tag">Discover Pisa</div>
-<h2>Walk, don't rush</h2>
-<div class="grid">
-<div class="card"><h3>Piazza dei Miracoli</h3><p>The Leaning Tower, Cathedral, Baptistery and monumental cemetery. Go early or late afternoon for a calmer experience.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Piazza+dei+Miracoli+Pisa">Maps</a></div>
-<div class="card"><h3>Lungarni</h3><p>Step outside and follow the Arno. The evening light along the Lungarni is one of Pisa's simplest pleasures.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Lungarno+Mediceo+Pisa">Walk</a></div>
-<div class="card"><h3>Santa Maria</h3><p>Explore the university quarter, small streets, cafés and the historic centre on foot from the apartment.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Santa+Maria+Pisa+Italy">Explore</a></div>
-<div class="card"><h3>Palazzo Blu</h3><p>Art exhibitions in a beautiful riverside palace, especially convenient for an easy cultural stop during a walk.</p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Palazzo+Blu+Pisa">Maps</a></div>
-</div>
-</div>
-</section>
+      <div class="grid">
+        <div class="card parking">
+          <h3>Lungarno Guadalongo</h3>
+          <p class="meta">Closest practical option • outdoor parking</p>
+          <p><strong>€0.75/hour</strong> • paid generally <strong>08:00–17:00</strong> in the regulated area. The official tourism portal also lists a free parking area at Lungarno Guadalongo; availability and exact spaces can vary.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lungarno+Guadalongo+Pisa">Open in Maps</a>
+        </div>
 
-<section id="practical" class="section">
-<div class="container">
-<div class="tag">Practical information</div>
-<h2>Before you head out</h2>
-<table>
-<tr><th>Topic</th><th>Useful information</th></tr>
-<tr><td>Emergency</td><td><strong>112</strong> is the European emergency number in Italy.</td></tr>
-<tr><td>Tourist tax</td><td>€2.50 per person per night, according to the accommodation information provided to guests.</td></tr>
-<tr><td>ZTL</td><td>Always check current signs and official PisaMo/Comune information before driving into the historic centre.</td></tr>
-<tr><td>Parking payment</td><td>PisaMo indicates payment by parking meter and supported apps such as Telepass, EasyPark, MyCicero, A-Tono and Sunhill.</td></tr>
-<tr><td>Getting around</td><td>The historic centre is highly walkable. For airport/train connections, check current public transport times before travelling.</td></tr>
-</table>
-<div class="notice"><strong>Our suggestion:</strong> arrive, unload your luggage, then move the car. It is usually much easier than trying to drive and park immediately in the historic centre.</div>
-</div>
-</section>
+        <div class="card parking">
+          <h3>Saba Vittorio Emanuele II</h3>
+          <p class="meta">Covered / structured parking • central • Open 24/7</p>
+          <p><strong>Published rates:</strong> about <strong>€2.90/hour</strong>; day rate around <strong>€19/day</strong>. Online H24 multi-day rate from €19, plus possible booking fee. Maximum vehicle height may apply.</p>
+          <p class="small">Booking and detailed tariffs: Parclick listing for this car park.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/SABA+Vittorio+Emanuele+II,+Pisa/">Open in Maps</a>
+            <a class="btn alt" target="_blank" rel="noopener" href="https://parclick.it/parcheggio-pisa">Parclick - SABA Vittorio Emanuele II</a>
+          </div>
+        </div>
+
+        <div class="card parking">
+          <h3>Tower Parking (Parcheggio Torre)</h3>
+          <p class="meta">Outside the ZTL • useful for the Tower area</p>
+          <p><strong>Mon–Sat 07:00–20:30</strong>; <strong>Sun 09:00–20:30</strong>. Maximum vehicle height published: 2.00 m. Check the operator's current tariff before parking.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Parcheggio+Torre+di+Pisa/">Open in Maps</a>
+        </div>
+
+        <div class="card parking">
+          <h3>Piazza dei Miracoli Parking</h3>
+          <p class="meta">Useful when visiting the Tower • Via Carlo Salomone Cammeo 51</p>
+          <p><strong>06:30–23:30 every day</strong>, including holidays. About 350 car spaces; not for campers, vans or tourist buses.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.turismo.pisa.it/servizio/parcheggio-a-pagamento-di-piazza-dei-miracoli">Official info</a>
+          <a class="btn alt" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Piazza+dei+Miracoli+Parking/">Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="notice"><strong>ZTL reminder:</strong> Pisa has regulated limited-traffic areas. Do not follow a route blindly into the historic centre. Check the signs and current restrictions before entering; parking authorization does not automatically mean access to every ZTL. Official information is available from PisaMo and the City of Pisa.</div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTS -->
+  <section id="restaurants" class="section">
+    <div class="container">
+      <div class="tag">Eat like a local</div>
+      <h2>Our restaurant shortlist</h2>
+      <p class="lead">A mix of Tuscan food, steak, contemporary cuisine, Asian flavours and quick local street food. Opening times and prices can change, so use the links to check before going.</p>
+
+      <div class="grid">
+        <div class="card restaurant">
+          <h3>Quanto Basta</h3>
+          <p class="meta">Via Palestro 37 • contemporary / Tuscan</p>
+          <p><span class="price">Average about €30 per person</span>. A three-course menu is currently listed at €36; individual dishes include starters around €11–17.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Quanto+Basta+Via+Palestro+37+Pisa/">Maps</a>
+        </div>
+
+        <div class="card restaurant">
+          <h3>Mediceo Beersteccheria</h3>
+          <p class="meta">Piazza Cairoli 13 • steak & craft beer</p>
+          <p>Excellent choice for meat lovers and beer fans. The restaurant says it serves lunch <strong>12:00–15:00</strong> and dinner <strong>19:00–23:00</strong>, every day.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.mediceo.it/">Website</a>
+        </div>
+
+        <div class="card restaurant">
+          <h3>I Porci Comodi</h3>
+          <p class="meta">Piazza Evangelista Torricelli 8 • Tuscan street food</p>
+          <p>Panini, porchetta, lampredotto, trippa and Tuscan platters. Current menu examples: panini about <strong>€7–8.50</strong>; one-person platter <strong>€15</strong>; two-person platter <strong>€24</strong>.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://i-porci-comodi.it/">Menu & website</a>
+        </div>
+
+        <div class="card restaurant">
+          <h3>La Fortuna Asian Bistrot</h3>
+          <p class="meta">Lungarno Mediceo 64 • sushi & poke</p>
+          <p>Very convenient from the apartment. Current menu examples: poke from about <strong>€10.50</strong>, sushi rolls from about <strong>€7.50</strong>.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/La+Fortuna+Asian+Bistrot+Lungarno+Mediceo+64+Pisa/">Maps</a>
+        </div>
+
+        <div class="card restaurant">
+          <h3>Chilometro Toscano</h3>
+          <p class="meta">Via Cavour 9 • Tuscan cuisine</p>
+          <p>A good option if you want a more traditional Tuscan dinner in the centre. Evening and weekend lunch services are listed; booking ahead is sensible.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Chilometro+Toscano+Via+Cavour+9+Pisa/">Maps</a>
+        </div>
+
+        <div class="card restaurant">
+          <h3>Malvee's Grill Burger</h3>
+          <p class="meta">Lungarno Mediceo 61 • burgers / casual</p>
+          <p>Very close to the apartment and useful for a relaxed, informal meal. Published hours extend into the evening.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Malvee's+Grill+Burger+Lungarno+Mediceo+61+Pisa/">Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PISA PLACES -->
+  <section id="pisa" class="section" style="background:#f7f6f2">
+    <div class="container">
+      <div class="tag">Discover Pisa</div>
+      <h2>Walk, don't rush</h2>
+      <p class="lead">Step outside and follow the Arno. The evening light along the Lungarni is one of Pisa's simplest pleasures.</p>
+
+      <div class="places-grid" aria-live="polite">
+        <!-- Piazza dei Miracoli -->
+        <article class="place-card card" id="piazza-dei-miracoli">
+          <img class="place-photo" alt="Piazza dei Miracoli" src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Piazza_dei_Miracoli%2C_Pisa_%28cropped%29.jpg" />
+          <div>
+            <h3>Piazza dei Miracoli</h3>
+            <p>The Leaning Tower, Cathedral, Baptistery and monumental cemetery. Go early or late afternoon for a calmer experience.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Piazza+dei+Miracoli,+56126+Pisa+PI,+Italy">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://www.opapisa.it/en/monuments/piazza-dei-miracoli/">Official info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Torre di Pisa -->
+        <article class="place-card card" id="torre-di-pisa">
+          <img class="place-photo" alt="Torre di Pisa" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Leaning_Tower_of_Pisa_2013.jpg" />
+          <div>
+            <h3>Torre di Pisa</h3>
+            <p>The iconic Leaning Tower — book tickets in advance for climbing. The tower is part of the Cathedral complex in Piazza dei Miracoli.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Leaning+Tower+of+Pisa/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://www.opapisa.it/en/monuments/leaning-tower/">Tickets & info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Piazza dei Cavalieri -->
+        <article class="place-card card" id="piazza-dei-cavalieri">
+          <img class="place-photo" alt="Piazza dei Cavalieri" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Piazza_dei_Cavalieri%2C_Pisa.jpg" />
+          <div>
+            <h3>Piazza dei Cavalieri</h3>
+            <p>Historic square dominated by the Palazzo della Carovana (Scuola Normale Superiore). A centre of Pisan civic life since the Middle Ages.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Piazza+dei+Cavalieri,+56126+Pisa+PI,+Italy">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://www.sns.it/en">Palazzo della Carovana / SNS</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Palazzo Blu -->
+        <article class="place-card card" id="palazzo-blu">
+          <img class="place-photo" alt="Palazzo Blu" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Palazzo_Blu_Pisa.jpg" />
+          <div>
+            <h3>Palazzo Blu</h3>
+            <p>Art exhibitions in a beautiful riverside palace, especially convenient for an easy cultural stop during a walk.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Palazzo+Blu,+Pisa/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://www.palazzoblu.it/en/">Official site</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lungarni -->
+        <article class="place-card card" id="lungarni">
+          <img class="place-photo" alt="Lungarni Pisa" src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Lungarno_Pisa.jpg" />
+          <div>
+            <h3>Lungarni</h3>
+            <p>Walk the Arno: cafés, bridges and evening light make the Lungarni one of Pisa's simplest pleasures.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Lungarno+Mediceo+Pisa">Walk</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Orto Botanico e Museo Botanico -->
+        <article class="place-card card" id="orto-botanico">
+          <img class="place-photo" alt="Orto Botanico di Pisa" src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Orto_Botanico_Pisa.jpg" />
+          <div>
+            <h3>Orto Botanico e Museo Botanico</h3>
+            <p>One of the oldest botanical gardens in Europe, founded in the 16th century. Quiet paths and historic greenhouses.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Orto+Botanico+di+Pisa/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://ortobotanicodipisa.unipi.it/en/">Official info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Museo San Matteo -->
+        <article class="place-card card" id="museo-san-matteo">
+          <img class="place-photo" alt="Museo Nazionale di San Matteo" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Museo_San_Matteo_Pisa.jpg" />
+          <div>
+            <h3>Museo Nazionale di San Matteo</h3>
+            <p>Important collection of medieval and Renaissance art from Pisa and the surrounding area.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+Nazionale+di+San+Matteo/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://musei.cultura.gov.it/en/museums/museo-nazionale-di-san-matteo/">Museum info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Museo delle Navi Antiche -->
+        <article class="place-card card" id="museo-navi-antiche">
+          <img class="place-photo" alt="Museo delle Navi Antiche" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Museo_delle_Navi_Antiche_Pisa.jpg" />
+          <div>
+            <h3>Museo delle Navi Antiche</h3>
+            <p>Archaeological finds and reconstructions of ancient ships recovered from the nearby lagoons.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+delle+Navi+Antiche+di+Pisa/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://musei.unipi.it/en/museo-delle-navi-antiche/">Museum info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Museo della Grafica -->
+        <article class="place-card card" id="museo-della-grafica">
+          <img class="place-photo" alt="Museo della Grafica" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Museo_della_Grafica_Pisa.jpg" />
+          <div>
+            <h3>Museo della Grafica</h3>
+            <p>Prints, engravings and graphic arts housed in a historic riverside building.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+della+Grafica+Pisa/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://musei.unipi.it/en/museo-della-grafica/">Official info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Museo delle Sinopie -->
+        <article class="place-card card" id="museo-sinopie">
+          <img class="place-photo" alt="Museo delle Sinopie" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Museo_delle_Sinopie_Pisa.jpg" />
+          <div>
+            <h3>Museo delle Sinopie</h3>
+            <p>Houses the preparatory drawings (sinopie) for the frescoes of the Camposanto Monumentale.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+delle+Sinopie/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://www.opapisa.it/en/monuments/museo-delle-sinopie/">Visitor info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Museo dell'Opera del Duomo -->
+        <article class="place-card card" id="museo-opera-duomo">
+          <img class="place-photo" alt="Museo dell'Opera del Duomo" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Museo_Opera_del_Duomo_Pisa.jpg" />
+          <div>
+            <h3>Museo dell'Opera del Duomo</h3>
+            <p>Collection of sculptures and works originally from the Cathedral complex.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+dell'Opera+del+Duomo+Pisa/">Open in Maps</a>
+              <a class="small-link" target="_blank" rel="noopener" href="https://www.opapisa.it/en/monuments/museo-dell-opera-del-duomo/">Official info</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Palazzo Reale -->
+        <article class="place-card card" id="palazzo-reale">
+          <img class="place-photo" alt="Palazzo Reale Pisa" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Palazzo_Reale_Pisa.jpg" />
+          <div>
+            <h3>Palazzo Reale</h3>
+            <p>Historic royal palace near the river with elegant rooms and exhibitions.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Palazzo+Reale+Pisa/">Open in Maps</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Historic churches cluster -->
+        <article class="place-card card" id="chiese">
+          <img class="place-photo" alt="Cattedrale di Pisa" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Cattedrale_di_Pisa.jpg" />
+          <div>
+            <h3>Chiese storiche</h3>
+            <p>Numerose chiese storiche, comprese: <strong>Cattedrale</strong>, <strong>Santa Maria della Spina</strong>, <strong>Santo Stefano dei Cavalieri</strong>, <strong>San Sisto</strong>, <strong>San Michele in Borgo</strong>, <strong>Santa Caterina</strong>, <strong>San Nicola</strong>, <strong>Santo Sepolcro</strong>, <strong>San Francesco</strong>, <strong>San Pietro in Vinculis</strong>, <strong>San Torpé</strong>, <strong>San Giorgio dei Tedeschi</strong>.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cattedrale+di+Pisa">Cattedrale Maps</a>
+            <a class="btn alt" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Santa+Maria+della+Spina+Pisa">Santa Maria della Spina</a>
+          </div>
+          </div>
+        </article>
+
+        <!-- Giardino Scotto -->
+        <article class="place-card card" id="giardino-scotto">
+          <img class="place-photo" alt="Giardino Scotto" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Giardino_Scotto_Pisa.jpg" />
+          <div>
+            <h3>Giardino Scotto</h3>
+            <p>Public garden and riverside park — a pleasant stop for families and children.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Giardino+Scotto+Pisa/">Open in Maps</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Activities for children -->
+        <article class="place-card card" id="attivita-bambini">
+          <img class="place-photo" alt="Children activities Pisa" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Children_playing_in_Pisa.jpg" />
+          <div>
+            <h3>Attività per bambini</h3>
+            <p>Family-friendly museums, parks and short boat trips on the Arno. Ask us for a tailored list of activities and opening times.</p>
+            <div class="place-meta">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=activities+for+children+Pisa">Find activities</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSEUMS DEDICATED SECTION -->
+  <section id="museums" class="section">
+    <div class="container">
+      <div class="tag">Museums</div>
+      <h2>Art, archaeology and natural history</h2>
+      <p class="lead">Pisa's museums cover a wide range of interests — from ancient ships to natural history and graphic arts.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Museo di Storia Naturale dell'Università di Pisa</h3>
+          <p class="meta">Natural history collections, specimens and exhibitions.</p>
+          <p>Part of the University of Pisa's museums; ideal for families and science lovers.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+di+Storia+Naturale+Universit%C3%A0+di+Pisa/">Open in Maps</a>
+          <a class="btn alt" target="_blank" rel="noopener" href="https://musei.unipi.it/en/museo-di-storia-naturale/">Official site</a>
+        </div>
+
+        <div class="card">
+          <h3>Museo delle Navi Antiche</h3>
+          <p class="meta">Archaeology</p>
+          <p>Exhibits from ancient shipwrecks and reconstructions.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+delle+Navi+Antiche+di+Pisa/">Open in Maps</a>
+        </div>
+
+        <div class="card">
+          <h3>Museo della Grafica</h3>
+          <p class="meta">Graphic arts and prints</p>
+          <p>Temporary exhibitions and a permanent collection of prints and engravings.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+della+Grafica+Pisa/">Open in Maps</a>
+        </div>
+
+        <div class="card">
+          <h3>Museo delle Sinopie</h3>
+          <p class="meta">Preparatory drawings for frescoes</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+delle+Sinopie/">Open in Maps</a>
+        </div>
+
+        <div class="card">
+          <h3>Museo dell'Opera del Duomo</h3>
+          <p class="meta">Sculpture and cathedral treasures</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+dell'Opera+del+Duomo+Pisa/">Open in Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTOSA DI CALCI / ESCURSIONI -->
+  <section id="certosa" class="section" style="background:#f0ebe1">
+    <div class="container">
+      <div class="tag">Escursioni fuori Pisa</div>
+      <h2>Certosa di Calci</h2>
+      <p class="lead">A short trip from Pisa: the Certosa di Calci is a monumental Carthusian complex with museums and a rich natural history collection.</p>
+
+      <div class="grid">
+        <div class="card">
+          <img class="place-photo" alt="Certosa di Calci" src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Certosa_di_Calci_-_Pisa.jpg" />
+          <h3>Certosa di Calci</h3>
+          <p>The Certosa includes the Museo Nazionale della Certosa Monumentale and the Museo di Storia Naturale dell'Università di Pisa (Calci branch).</p>
+          <p class="small">Useful links for planning: official municipal pages and the University of Pisa museum pages for opening times and ticketing.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Certosa+di+Calci/">Open in Maps</a>
+            <a class="btn alt" target="_blank" rel="noopener" href="https://musei.unipi.it/en/museo-di-storia-naturale/calci/">Museo di Storia Naturale - Calci</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Museo Nazionale della Certosa Monumentale</h3>
+          <p class="meta">Art and monastic history</p>
+          <p>Historic rooms, cloisters and collections telling the story of the monastery and its art.</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Museo+Nazionale+della+Certosa+di+Calci/">Open in Maps</a>
+          <a class="btn alt" target="_blank" rel="noopener" href="https://www.musei.pisa.it/en/museums/certosa-di-calci/">Official info</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY OF THE HOUSE -->
+  <section id="history" class="section">
+    <div class="container">
+      <div class="tag">Storia</div>
+      <h2>Storia di Pisa Paradiso Nice View</h2>
+      <p class="lead">Pisa Paradiso Nice View è un'antica casa-torre del XIV secolo, con pietre e murature originali che raccontano secoli di vita cittadina.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>La casa-torre</h3>
+          <p>La struttura conserva elementi murari e pietre originali del XIV secolo; gli interventi di restauro hanno valorizzato le texture e i materiali storici, mantenendo un equilibrio tra comfort moderno ed estetica storica.</p>
+        </div>
+
+        <div class="card">
+          <h3>Aurelio Saffi</h3>
+          <p class="meta">Politico e patriota (1819–1890)</p>
+          <p>Aurelio Saffi fu figura di spicco del movimento repubblicano italiano e membro della Giovine Italia; la tradizione locale collega la presenza di figure risorgimentali alla casa. Per approfondire: <a class="small-link" target="_blank" rel="noopener" href="https://it.wikipedia.org/wiki/Aurelio_Saffi">Biografia Aurelio Saffi (Wikipedia)</a>.</p>
+        </div>
+
+        <div class="card">
+          <h3>Enrico Novelli (Yambo)</h3>
+          <p class="meta">Scrittore e illustratore (1876–1943)</p>
+          <p>Enrico Novelli, noto come Yambo, fu giornalista, scrittore per l'infanzia e illustratore. La tradizione racconta che soggiornò in questa casa; per una breve biografia: <a class="small-link" target="_blank" rel="noopener" href="https://it.wikipedia.org/wiki/Enrico_Novelli">Enrico Novelli - Yambo (Wikipedia)</a>.</p>
+        </div>
+      </div>
+
+      <div class="notice"><strong>Nota storica:</strong> le biografie e le fonti citate sono fornite per approfondire la tradizione locale e i legami culturali della casa con figure storiche note.</div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section id="practical" class="section">
+    <div class="container">
+      <div class="tag">Practical information</div>
+      <h2>Before you head out</h2>
+
+      <table>
+        <tr><th>Topic</th><th>Useful information</th></tr>
+        <tr><td>Emergency</td><td><strong>112</strong> is the European emergency number in Italy.</td></tr>
+        <tr><td>Tourist tax</td><td>€2.50 per person per night, according to the accommodation information provided to guests.</td></tr>
+        <tr><td>ZTL</td><td>Always check current signs and official PisaMo/Comune information before driving into the historic centre.</td></tr>
+        <tr><td>Parking payment</td><td>PisaMo indicates payment by parking meter and supported apps such as Telepass, EasyPark, MyCicero, A-Tono and Sunhill.</td></tr>
+        <tr><td>Getting around</td><td>The historic centre is highly walkable. For airport/train connections, check current public transport times before travelling.</td></tr>
+      </table>
+
+      <div class="notice"><strong>Our suggestion:</strong> arrive, unload your luggage, then move the car. It is usually much easier than trying to drive and park immediately in the historic centre.</div>
+    </div>
+  </section>
 </main>
 
 <footer>
-<div class="container">
-<h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;margin:0">Pisa Paradiso Nice View</h2>
-<p>We hope you enjoy Pisa as much as we do. If you need a recommendation, just ask us.</p>
-<p class="small" style="color:#c7d0d0">Information checked/updated September 2026. Parking tariffs, opening hours and restaurant menus may change; always verify with the operator before travelling.</p>
-<p class="small" style="color:#c7d0d0">Main sources: PisaMo • Comune di Pisa Turismo • Saba • individual restaurant websites/menus.</p>
-</div>
+  <div class="container">
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;margin:0">Pisa Paradiso Nice View</h2>
+    <p>We hope you enjoy Pisa as much as we do. If you need a recommendation, just ask us.</p>
+    <p class="small" style="color:#c7d0d0">Information checked/updated September 2026. Parking tariffs, opening hours and restaurant menus may change; always verify with the operator before travelling.</p>
+    <p class="small" style="color:#c7d0d0">Main sources: PisaMo • Comune di Pisa Turismo • Saba • individual restaurant websites/menus.</p>
+  </div>
 </footer>
+
+<script>
+/* Language switcher and voice synthesis (Web Speech API) */
+const translations = {
+  it:{label:'Italiano',playLabel:'Ascolta',stopLabel:'Stop',welcomeLead:'You are staying in a historic apartment overlooking the Arno, in the heart of Pisa. Take your time, walk the Lungarni and let the city reveal itself on foot.',exploreBtn:'Explore the guide ↓'},
+  en:{label:'English',playLabel:'Listen',stopLabel:'Stop',welcomeLead:'You are staying in a historic apartment overlooking the Arno, in the heart of Pisa. Take your time, walk the Lungarni and let the city reveal itself on foot.',exploreBtn:'Explore the guide ↓'},
+  fr:{label:'Français',playLabel:'Écouter',stopLabel:'Arrêter',welcomeLead:'Vous séjournez dans un appartement historique surplombant l’Arno, au cœur de Pise. Prenez votre temps, promenez-vous le long des Lungarni.',exploreBtn:'Explorer la guide ↓'},
+  de:{label:'Deutsch',playLabel:'Anhören',stopLabel:'Stopp',welcomeLead:'Sie wohnen in einer historischen Wohnung mit Blick auf den Arno im Herzen von Pisa. Nehmen Sie sich Zeit und spazieren Sie entlang der Lungarni.',exploreBtn:'Guide erkunden ↓'},
+  es:{label:'Español',playLabel:'Escuchar',stopLabel:'Detener',welcomeLead:'Se alojan en un apartamento histórico con vistas al Arno, en el corazón de Pisa. Tómense su tiempo y paseen por los Lungarni.',exploreBtn:'Explorar la guía ↓'}
+};
+let currentLang='it';
+const langButtons=document.querySelectorAll('.lang-switch button');
+const currentLangLabel=document.getElementById('current-lang-label');
+const playBtn=document.getElementById('play-voice');
+const stopBtn=document.getElementById('stop-voice');
+const heroLead=document.querySelector('.hero-inner .lead')||document.querySelector('.hero-inner p.lead');
+const exploreBtn=document.querySelector('.hero-inner .btn.alt');
+function setLanguage(lang){
+  if(!translations[lang])return;
+  currentLang=lang;
+  langButtons.forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang);b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false')});
+  currentLangLabel.textContent=translations[lang].label;
+  if(heroLead)heroLead.textContent=translations[lang].welcomeLead;
+  if(exploreBtn)exploreBtn.textContent=translations[lang].exploreBtn;
+  playBtn.textContent=translations[lang].playLabel;
+  stopBtn.textContent=translations[lang].stopLabel;
+}
+langButtons.forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));
+setLanguage('it');
+let synth=window.speechSynthesis;let utterance=null;
+function speakCurrentLead(){
+  if(!('speechSynthesis' in window)){alert('Speech synthesis not supported in this browser.');return;}
+  const text=(heroLead&&heroLead.textContent)?heroLead.textContent:document.querySelector('.hero-inner p').textContent;
+  if(synth.speaking){synth.cancel();}
+  utterance=new SpeechSynthesisUtterance(text);
+  const langMap={it:'it-IT',en:'en-US',fr:'fr-FR',de:'de-DE',es:'es-ES'};
+  utterance.lang=langMap[currentLang]||'it-IT';
+  const voices=synth.getVoices();
+  const voice=voices.find(v=>v.lang&&v.lang.startsWith(utterance.lang.split('-')[0]));
+  if(voice)utterance.voice=voice;
+  synth.speak(utterance);
+}
+playBtn.addEventListener('click',()=>speakCurrentLead());
+stopBtn.addEventListener('click',()=>{if(synth.speaking)synth.cancel();});
+if(speechSynthesis&&speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=()=>{}}
+document.addEventListener('keydown',(e)=>{if(e.altKey&&e.key==='1')setLanguage('it');if(e.altKey&&e.key==='2')setLanguage('en');if(e.altKey&&e.key==='3')setLanguage('fr');if(e.altKey&&e.key==='4')setLanguage('de');if(e.altKey&&e.key==='5')setLanguage('es');});
+</script>
+
+</body>
+</html>`;
+
+function downloadFile(filename, text) {
+  const blob = new Blob([text], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+// Auto-trigger download on load (some browsers block automatic downloads; button is provided as fallback)
+window.addEventListener('load', () => {
+  try {
+    // small delay to allow user agent to settle
+    setTimeout(() => {
+      downloadFile('index.html', htmlContent);
+    }, 300);
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+const downloadBtn = document.getElementById('downloadBtn');
+const showBtn = document.getElementById('showBtn');
+const contentArea = document.getElementById('contentArea');
+
+downloadBtn.addEventListener('click', () => {
+  downloadFile('index.html', htmlContent);
+});
+
+showBtn.addEventListener('click', () => {
+  if (contentArea.hidden) {
+    contentArea.value = htmlContent;
+    contentArea.hidden = false;
+    showBtn.textContent = 'Nascondi contenuto';
+  } else {
+    contentArea.hidden = true;
+    showBtn.textContent = 'Mostra contenuto';
+  }
+});
+</script>
 </body>
 </html>
